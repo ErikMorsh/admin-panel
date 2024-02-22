@@ -5,6 +5,7 @@ import { store, type Store } from "@/vuex/store";
 export default store
 
 
+
 // For using this.store in Options API
 declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
@@ -12,7 +13,7 @@ declare module '@vue/runtime-core' {
     }
 }
 
-// For using state in Composition API
+// A hook for using state in Composition API
 export function useStore() {
     return store as Store
 }
