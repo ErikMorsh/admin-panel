@@ -37,6 +37,7 @@ const vuetify = createVuetify({
                     backgroundSecondary: '#FFFFFF',
                     backgroundCardPrimary: '#F7F9F9',
                     backgroundCardSecondary: '#ECFDE6',
+                    faintedText: '#777',
                     success: '#228200',
                     info: '#158DE3',
                     danger: '#E42222',

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100 h-100 d-flex">
+    <div id="AppNavbar" class="w-100 h-100 d-flex">
         <AppNavbarLogo />
         <v-spacer></v-spacer>
         <AppNavbarActions />
