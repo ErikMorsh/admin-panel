@@ -5,10 +5,12 @@
         </v-system-bar>
 
         <v-navigation-drawer
-            color="grey-darken-1"
+            color="backgroundSecondary"
             permanent
-            width="150"
-        ></v-navigation-drawer>
+            width="280"
+        >
+            <AppSidebar />
+        </v-navigation-drawer>
 
         <v-main
             class="d-flex align-center justify-center"
@@ -22,10 +24,12 @@
             <v-icon>mdi-theme-light-dark</v-icon>
         </v-btn>
     </Teleport>
+    
 </template>
 
 <script setup lang="ts">
 import AppNavbar from '@/components/navbar/AppNavbar.vue';
+import AppSidebar from '@/components/sidebar/AppSidebar.vue';
 
 import { useTheme } from 'vuetify';
 
