@@ -1,10 +1,10 @@
 <template>
     <div class="d-flex align-center">
         <GithubButton />
-        <v-btn variant="text" class="links text-capitalize font-weight-bold">
+        <v-btn variant="text" class="links d-none d-md-inline text-capitalize font-weight-bold">
             About Vuetify Admin
         </v-btn>
-        <v-btn variant="text" class="links text-capitalize font-weight-bold">
+        <v-btn variant="text" class="links d-none d-sm-inline text-capitalize font-weight-bold">
             Help & Support
         </v-btn>
         <NotificationDropdown />

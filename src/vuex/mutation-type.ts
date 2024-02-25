@@ -1,3 +1,5 @@
 export enum MutationTypes {
     SET_MESSAGE = 'SET_MESSAGE',
+    SET_SCREEN_SIZE = 'SET_SCREEN_SIZE',
+    SET_DRAWER_STATE = 'SET_DRAWER_STATE',
 }

@@ -1,5 +1,8 @@
 export const rootState = {
-    message: ''
+    message: '',
+    screenSize: 0,
+
+    drawerState: false,
 }
 
 export type RootState = typeof rootState
