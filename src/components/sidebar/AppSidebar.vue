@@ -5,12 +5,23 @@
             <div v-if="option.children.length"
                  class="links w-100 px-5 py-3 d-flex text-BandW cursor-pointer"
                  v-ripple
-                 @click="toggleLinkChildStatus(option.id)">
+                 @click="toggleLinkChildStatus(option.id)"
+                 :class="{
+                    'bg-backgroundLinkPrimary': hasActiveChild(option.children)
+                 }">
                  
-                <v-icon class="text-faintedText">mdi-{{ option.icon }}</v-icon>
-                <p class="text-capitalize ml-2">Dashboard</p>
+                <v-icon :class="
+                         hasActiveChild(option.children) ? 'text-primary': 'text-faintedText'
+                    ">mdi-{{ option.icon }}</v-icon>
+                <p class="text-capitalize ml-2"
+                    :class="{
+                        'text-primary': hasActiveChild(option.children)
+                    }">Dashboard</p>
                 <v-spacer></v-spacer>
-                <v-icon>
+                <v-icon
+                :class="{
+                        'text-primary': hasActiveChild(option.children)
+                    }">
                     {{ option.childStatus ? 'mdi-chevron-up' : 'mdi-chevron-down'}}
                 </v-icon>
             </div>
@@ -31,30 +42,36 @@
             </router-link>
 
             <!-- Children -->
-            <div v-if="option.childStatus" 
+            <div v-if="option.childStatus">
+                <div v-for="child in option.children"
                     class="w-100"
                     :class="{
-                        'bg-backgroundLinkPrimary': option.selfStatus
+                        'bg-backgroundLinkPrimary': child.selfStatus
                     }">
-                <router-link :to="{ name: 'dashboard'}">
-                    <div class="links w-100 pl-15 py-3 d-flex text-BandW" v-ripple>
-                        <p class="text-capitalize ml-2"
-                            :class="{
-                                'text-primary': option.selfStatus
-                            }">Dashboard</p>
-                    </div>
-                </router-link>
+                    <router-link :to="{ name: 'dashboard'}">
+                        <div class="links w-100 pl-15 py-3 d-flex text-BandW" v-ripple>
+                            <p class="text-capitalize ml-2"
+                                :class="{
+                                    'text-primary': child.selfStatus
+                                }">{{ child.name }}</p>
+                        </div>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
+
+import navigationRoutes from './NavigationRoutes'
+// Next I will extract routes and map them into options obj below
 
 interface IChildLink {
     name: string,
-    to: string
+    to: string,
+    selfStatus: boolean,
 }
 
 interface IOption {
@@ -76,11 +93,22 @@ const options: IOption[] = reactive([
         children: [
            {
                 name: 'dash',
-                to: 'dash'
-            }
+                to: 'dash',
+                selfStatus: false,
+            },
+           {
+                name: 'bash',
+                to: 'bash',
+                selfStatus: false,
+            },
+           {
+                name: 'cash',
+                to: 'cash',
+                selfStatus: true,
+            },
         ],
         childStatus: false,
-        selfStatus: true
+        selfStatus: false
     },
     {
         id: 2,
@@ -92,6 +120,14 @@ const options: IOption[] = reactive([
         selfStatus: false
     }
 ])
+
+const hasActiveChild = (children: IChildLink[]): boolean => {
+    for (const child of children) {
+        if (child.selfStatus)
+            return true;
+    }
+    return false;
+}
 
 function toggleLinkChildStatus(optionId: number): void {
     const option: IOption | undefined = options.find(option => option.id === optionId)
