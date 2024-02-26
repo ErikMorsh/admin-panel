@@ -5,8 +5,9 @@
         mdi-{{ !drawerState ? "menu-close" : "menu-open" }}
       </v-icon>
     </v-btn>
-    <P> Home / Dashboard</P>
+
     <!-- TODO: will be dynamic after setting routes -->
+    <p>Home / Dashboard</p>
   </div>
 </template>
 

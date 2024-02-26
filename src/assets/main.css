@@ -1,35 +1,31 @@
-@import './base.css';
-/*
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@import "./base.css";
+
+.v-select {
+  height: 100%;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* VSelect-CSS Used in Revenue Card */
+.small-select .v-input__control {
+  height: 30px !important;
+}
+.small-select .v-field-label--floating {
+  display: none !important;
+}
+.small-select .v-field__append-inner {
+  height: 30px !important;
+}
+.small-select .v-input--density-default {
+  --v-input-padding-top: 0;
+}
+.small-select .v-field__field label {
+  margin-top: 0 !important;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.small-select .v-select .v-field {
+  padding: 0 !important;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
+.small-select .v-select .v-field__input {
+  font-size: 12px !important;
+  padding: 4px 4px !important;
+}
