@@ -1,30 +1,31 @@
 <template>
-    <div>
-        <v-btn  @click="handleDrawerBtn">
-            toggle sidebar
-        </v-btn>
-    </div>
+  <div class="py-2 d-flex align-center">
+    <v-btn @click="handleDrawerBtn" variant="text">
+      <v-icon size="30">
+        mdi-{{ !drawerState ? "menu-close" : "menu-open" }}
+      </v-icon>
+    </v-btn>
+    <P> Home / Dashboard</P>
+    <!-- TODO: will be dynamic after setting routes -->
+  </div>
 </template>
 
 <script setup lang="ts">
-// import { useStore } from '@/plugins/vuex';
-// import { MutationTypes } from '@/vuex/mutation-type' 
-// const store = useStore();
+import { useDisplay } from "vuetify";
+const { mobile } = useDisplay();
 
-// function toggleDrawerState() {
-//     store.commit(MutationTypes.SET_SIDEBARSTATE, !store.getters.getSidebarState)
-// }
-
+// get props
+const { drawerState } = defineProps({
+  drawerState: Boolean,
+});
 
 // use emit to toggle drawer
-import { defineEmits } from 'vue'
-const emits = defineEmits(['toggle-sidebar'])
+import { defineEmits } from "vue";
+const emits = defineEmits(["toggle-sidebar"]);
 
 function handleDrawerBtn() {
-    emits('toggle-sidebar')
+  emits("toggle-sidebar");
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

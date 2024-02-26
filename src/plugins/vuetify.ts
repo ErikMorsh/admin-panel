@@ -15,10 +15,11 @@ const vuetify = createVuetify({
         mobileBreakpoint: 'sm',
         thresholds: {
             xs: 0,
-            sm: 340,
-            md: 540,
-            lg: 800,
-            xl: 1280,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+            xxl: 2560
         },
     },
     theme: {
