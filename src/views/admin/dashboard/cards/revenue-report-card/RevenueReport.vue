@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card class="bg-backgroundSecondary pa-3 pl-5">
-      <div class="d-flex">
+    <v-card class="bg-backgroundSecondary pa-3">
+      <div class="d-flex mb-5">
         <!-- Title -->
         <p class="text-caption font-weight-bold text-faintedText">
           REVENUE REPORT
@@ -35,7 +35,7 @@
       <v-row class="d-flex flex-row-reverse">
         <v-col cols="12" md="8" class="pl-0 position-relative">
           <!-- Chart -->
-          <RevenueChart />
+          <RevenueChart v-if="forceChartToRender" />
         </v-col>
         <v-col cols="12" md="4" class="pr-0">
           <!-- Info -->
@@ -68,7 +68,24 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, watch } from "vue";
 import RevenueChart from "./RevenueChart.vue";
+
+// Force RevenueChart to rerender after theme changed
+import { useTheme } from "vuetify";
+const theme = useTheme();
+
+const themeMode = computed(() => {
+  return theme.global.current.value.dark ? "dark" : "light";
+});
+
+const forceChartToRender = ref(true);
+watch(themeMode, () => {
+  forceChartToRender.value = false;
+  setTimeout(() => {
+    forceChartToRender.value = true;
+  }, 10);
+});
 </script>
 
 <style scoped>

@@ -37,7 +37,7 @@ const vuetify = createVuetify({
     },
   },
   theme: {
-    defaultTheme: "light",
+    defaultTheme: "dark",
     // variations: {
     //     colors: ['primary'],
     //     lighten: 4,
@@ -54,6 +54,8 @@ const vuetify = createVuetify({
           backgroundCardSecondary: "#ECFDE6",
           backgroundLinkPrimary: "#A2CFFF",
           faintedText: "#777",
+          _barPrimary: "#2962FF",
+          _barSecondary: "#90CAF9",
           success: "#228200",
           info: "#158DE3",
           danger: "#E42222",
