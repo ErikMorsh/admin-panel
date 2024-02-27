@@ -1,8 +1,8 @@
 <template>
-  <div id="chart-container">
+  <div id="chart-container" :style="{ position: 'relative', height: '100%' }">
     <Bar
       id="my-chart-id"
-      :style="{ height: '100%', width: '100%' }"
+      :style="{ height: '90%', width: '100%' }"
       :options="chartOptions"
       :data="chartData"
     />
@@ -83,6 +83,7 @@ const chartData = reactive({
 });
 const chartOptions = reactive({
   responsive: false,
+  // maintainAspectRatio: false,
   plugins: {
     legend: {
       display: false,
@@ -122,7 +123,7 @@ const chartOptions = reactive({
 </script>
 
 <style scoped>
-#chart-container {
+.chart-container {
   height: 100%;
 }
 </style>

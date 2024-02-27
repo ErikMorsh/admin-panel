@@ -37,7 +37,7 @@ const vuetify = createVuetify({
     },
   },
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: "light",
     // variations: {
     //     colors: ['primary'],
     //     lighten: 4,
@@ -69,6 +69,8 @@ const vuetify = createVuetify({
           backgroundCardPrimary: "#111827",
           backgroundCardSecondary: "#0f172a",
           backgroundLinkPrimary: "#0f3258",
+          _barPrimary: "#2962FF",
+          _barSecondary: "#90CAF9",
         },
       },
     },

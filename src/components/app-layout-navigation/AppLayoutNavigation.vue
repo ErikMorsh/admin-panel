@@ -8,6 +8,8 @@
 
     <!-- TODO: will be dynamic after setting routes -->
     <p>Home / Dashboard</p>
+
+    <!-- TODO: print last path in url in big title -->
   </div>
 </template>
 
