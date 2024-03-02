@@ -57,10 +57,12 @@ const lightPrimary = theme.themes.value.light.colors._barSecondary;
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "vue-chartjs";
+import { reactive } from "vue";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const dataSet = {
+const dataSet = reactive({
+  type: "doughnut",
   datasets: [
     {
       label: ["Profit", "Expenses"],
@@ -69,7 +71,7 @@ const dataSet = {
       hoverOffset: 2,
     },
   ],
-};
+});
 
 const options = {
   responsive: false,

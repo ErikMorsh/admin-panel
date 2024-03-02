@@ -25,7 +25,7 @@
     </v-main>
   </v-layout>
   <Teleport to="body">
-    <v-btn @click="toggleTheme" class="theme-toggle" icon variant="tonal">
+    <v-btn @click="toggleTheme" class="theme-toggler" icon variant="tonal">
       <v-icon>mdi-theme-light-dark</v-icon>
     </v-btn>
   </Teleport>
@@ -94,7 +94,7 @@ const drawerModeBasedOnScreen = computed(() => {
 </script>
 
 <style scoped>
-.theme-toggle {
+.theme-toggler {
   position: fixed;
   bottom: 20px;
   right: 20px;
