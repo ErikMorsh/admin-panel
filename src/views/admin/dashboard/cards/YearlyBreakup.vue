@@ -29,15 +29,62 @@
             </div>
           </v-col>
         </v-col>
-        <v-col cols="8" md="8" class="pl-0 position-relative">
+        <v-col cols="6" class="pl-0 position-relative">
           <!-- Chart -->
+          <div
+            id="chart-container"
+            :style="{ position: 'relative', height: '100%' }"
+          >
+            <Doughnut
+              id="my-chart-id"
+              :style="{ height: '100%', width: '100%' }"
+              :options="options"
+              :data="dataSet"
+            />
+          </div>
         </v-col>
       </v-row>
     </v-card>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTheme } from "vuetify";
+const theme = useTheme();
+
+const primary = theme.themes.value.light.colors._barPrimary;
+const lightPrimary = theme.themes.value.light.colors._barSecondary;
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "vue-chartjs";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const dataSet = {
+  datasets: [
+    {
+      label: ["Profit", "Expenses"],
+      data: [20, 100],
+      backgroundColor: [primary, lightPrimary],
+      hoverOffset: 2,
+    },
+  ],
+};
+
+const options = {
+  responsive: false,
+  // maintainAspectRatio: false,
+  // circumference: 300,
+  cutout: "80%",
+  borderRadius: 20,
+  borderWidth: 0,
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+};
+</script>
 
 <style scoped>
 .info-bullet {
